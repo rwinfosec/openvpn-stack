@@ -1,5 +1,6 @@
 from .resources.ec2 import Ec2Instance
 from troposphere import Template
+import json
 
 
 class Stack:
@@ -7,7 +8,7 @@ class Stack:
         self._template = Template()
         template = self._template
 
-        open_vpn = {"ami": "ami-027cab9a7bf0155df",
+        open_vpn = {"ami": "ami-0b69ea66ff7391e80",
                     "resourceName": "OpenVPN",
                     "keyName": "rwalker"}
 
@@ -16,7 +17,8 @@ class Stack:
                                           key_name=open_vpn["keyName"]))
 
     def template_to_json(self):
-        return self._template.to_json()
+        print(self._template.to_json())
+        return json.loads(self._template.to_json())
 
 
 if __name__ == '__main__':

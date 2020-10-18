@@ -3,6 +3,8 @@ VENV:=${BUILD_DIR}/venv
 PYTHON:=${VENV}/bin/python3
 PIP:=${VENV}/bin/pip3
 
+all: lint test
+
 run: deps
 	${PYTHON} -m src.stack
 
@@ -10,12 +12,11 @@ lint: deps
 	${PYTHON} -m flake8 --exclude build/
 
 test: deps
-	${PYTHON} -m pytest tests/unit/ -s
+	${PYTHON} -m pytest tests/unit/
 
 clean:
 	rm -rf ${BUILD_DIR}/
 	find . -name "*.py[co]" -delete
-
 
 venv:
 	test -d ${VENV} || python3 -m venv ${VENV}/
