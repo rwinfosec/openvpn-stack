@@ -2,3 +2,4 @@ troposphere
 robber
 pytest
 flake8
+boto3

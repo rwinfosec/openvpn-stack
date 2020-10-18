@@ -9,5 +9,5 @@ def test_ec2_instance():
                          )
     expect(output.title).to.eq('MyInstance')
     expect(output.properties['ImageId']).to.eq('ami-123456')
-    expect(output.properties['InstanceType']).to.eq('t1.micro')
+    expect(output.properties['InstanceType']).to.eq('t2.micro')
     expect(output.properties['KeyName']).to.eq('ssh-key')
