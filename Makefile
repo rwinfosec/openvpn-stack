@@ -12,7 +12,7 @@ lint: deps
 	${PYTHON} -m flake8 --exclude build/
 
 test: deps
-	${PYTHON} -m pytest tests/unit/
+	${PYTHON} -m pytest tests/unit/ -s
 
 clean:
 	rm -rf ${BUILD_DIR}/
