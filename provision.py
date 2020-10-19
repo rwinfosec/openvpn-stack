@@ -2,12 +2,12 @@ import boto3
 import json
 import botocore
 from src.stack import Stack
+from settings import stack_name
 
 cf = boto3.client('cloudformation')
 
 
 def main():
-    stack_name = 'openvpn-stack'
     template = json.dumps(Stack().template_to_json())
     params = {'StackName': stack_name, 'TemplateBody': template}
 
